@@ -1,0 +1,19 @@
+{
+  "name": "@vaply/core",
+  "version": "0.0.1",
+  "description": "Content Annotation PLaYer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkasabas/vaply.gi.git"
+  },
+  "author": "hrvoje.kasabasic@mashpipe.io",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/hkasabas/vaply.gi/issues"
+  },
+  "homepage": "https://github.com/hkasabas/vaply.gi#readme"
+}
