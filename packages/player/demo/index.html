@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <title>ACPY - Demo</title>
+
+  <style>
+    #vaply-demo {
+      width: 600px;
+    }
+
+    #vaply-demo video {
+      width: 100%;
+    }
+  </style>
+
+  <script src="../dist/index.js"></script>
+</head>
+
+<body>
+  <h2>Annotated Content PlaYer - Demo</h2>
+
+  <div id="vaply-demo"></div>
+
+  <script>
+    window.addEventListener('load', () => {
+      VaplyPlayer.createPlayer('#vaply-demo', {
+        config: VaplyPlayer.MOCK, onData: (event) => {
+          console.log(`[acpy] data event`, event)
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

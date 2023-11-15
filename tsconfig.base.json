@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ES2015",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "jsxFactory": "h",
+    "declaration": true,
+    "incremental": true,
+    "declarationMap": true,
+    "strict": true,
+    "lib": ["es2021"],
+    "removeComments": true,
+    "paths": {
+      "@player/*": ["./packages/player/src/*"]
+    }
+  }
+}
