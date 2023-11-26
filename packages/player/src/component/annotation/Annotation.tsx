@@ -2,6 +2,7 @@ import { h, FunctionComponent } from "preact";
 import { useCallback, useMemo } from "preact/hooks";
 
 import { CardAnnotation } from "@player/component/annotation/CardAnnotation";
+import { ExternalContentAnnotation } from "@player/component/annotation/ExternalContentAnnotation";
 import { AnnotationConfig, DataEvent, RouteEvent } from "@player/model";
 
 /** Annotation component props */
@@ -39,6 +40,11 @@ const Annotation: FunctionComponent<AnnotationProps> = (props) => {
     <div className="vaply-annotation__staticPosition" style={positionProps}>
       {/* ----- card ----- */}
       {props.config.type === "card" && <CardAnnotation config={props.config} onData={props.onData} onRoute={props.onRoute} onClose={props.onClose} />}
+
+      {/* ----- externalcontent ----- */}
+      {props.config.type === "externalcontent" && (
+        <ExternalContentAnnotation config={props.config} onData={props.onData} onRoute={props.onRoute} onClose={props.onClose} />
+      )}
 
       {/* close button */}
       {props.config.dismissible && (

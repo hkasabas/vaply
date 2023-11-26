@@ -37,11 +37,11 @@ export const MOCK: NodePlayerConfig = {
         },
         {
           code: "annot-3",
-          type: "card",
+          type: "externalcontent",
           blocking: true,
           dismissible: true,
-          position: { type: "static", static: { top: "5px", right: "5px", bottom: "5px", left: "5px" } },
-          card: { title: "This is annotation #3" },
+          position: { type: "static", static: { right: "5px", top: "50%" } },
+          externalcontent: { selector: "#externalcontent-annot-1" },
         },
       ],
       triggers: [

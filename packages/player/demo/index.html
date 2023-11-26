@@ -11,6 +11,17 @@
     #vaply-demo video {
       width: 100%;
     }
+
+    #vaply-externalcontent__container {
+      display: none;
+    }
+
+    #externalcontent-annot-1 {
+      opacity: .5;
+      padding: 0.8rem 1rem;
+      background-color: red;
+      color: white;
+    }
   </style>
 
   <script src="../dist/index.js"></script>
@@ -20,6 +31,12 @@
   <h2>Annotated Content PlaYer - Demo</h2>
 
   <div id="vaply-demo"></div>
+
+  <div id="vaply-externalcontent__container">
+    <div id="externalcontent-annot-1">
+      This is external content #1
+    </div>
+  </div>
 
   <script>
     window.addEventListener('load', () => {
