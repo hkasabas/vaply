@@ -9,6 +9,7 @@ export default {
     name: "VaplyPlayer",
     dir: "dist",
     format: "iife",
+    sourcemap: true,
   },
   plugins: [typescript({ tsconfig: "./tsconfig.build.json" }), postcss({}), nodeResolve(), commonjs()],
 };
