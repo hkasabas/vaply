@@ -108,6 +108,7 @@ export type DataEvent<D = unknown, T = string> = {
 
 export type RouteEvent = string;
 
-export type TypedConfig<T, V extends string, C> = T & { [P in V]: C };
+/** Type that filters union types by value(s) of `type` property. */
+export type TypedUnion<T extends { type: string }, V extends T["type"] | Array<T["type"]>> = Extract<T, { type: V }>;
 
 export type ObjectValue<T> = { value: T | undefined };
