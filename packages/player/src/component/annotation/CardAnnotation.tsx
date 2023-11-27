@@ -1,12 +1,11 @@
 import { FunctionComponent, h } from "preact";
 
-import { AnnotationConfig, DataEvent, RouteEvent, TypedUnion } from "@player/model";
+import { AnnotationConfig, RouteEvent, TypedUnion } from "@player/model";
 
 /** Card annotation component props */
 export type CardAnnotationProps = {
   config: TypedUnion<AnnotationConfig, "card">;
 
-  onData?: (data: DataEvent) => void;
   onRoute?: (route: RouteEvent) => void;
   onClose?: () => void;
 };

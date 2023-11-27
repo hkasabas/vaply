@@ -1,13 +1,11 @@
 import { h, render } from "preact";
 
 import { NodePlayer } from "@player/component/NodePlayer";
-import { DataEvent, NodePlayerConfig } from "@player/model";
+import { NodePlayerConfig } from "@player/model";
 
 export type VaplyPlayerProps = {
   currentAddress?: string;
   config: NodePlayerConfig;
-
-  onData?: (data: DataEvent) => void;
 };
 
 /**
@@ -20,7 +18,7 @@ export function createPlayer(rootElSelector: string, props: VaplyPlayerProps) {
     const currentAddress = props.currentAddress != null ? { value: props.currentAddress } : undefined;
 
     if (el != null) {
-      render(<NodePlayer config={props.config} currentAddress={currentAddress} onData={props.onData} />, el);
+      render(<NodePlayer config={props.config} currentAddress={currentAddress} />, el);
     }
   }
 

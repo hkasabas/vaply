@@ -3,13 +3,12 @@ import { useCallback, useMemo } from "preact/hooks";
 
 import { CardAnnotation } from "@player/component/annotation/CardAnnotation";
 import { ExternalContentAnnotation } from "@player/component/annotation/ExternalContentAnnotation";
-import { AnnotationConfig, DataEvent, RouteEvent } from "@player/model";
+import { AnnotationConfig, RouteEvent } from "@player/model";
 
 /** Annotation component props */
 export type AnnotationProps = {
   config: AnnotationConfig;
 
-  onData?: (data: DataEvent) => void;
   onRoute?: (route: RouteEvent) => void;
   onClose?: () => void;
 };
@@ -39,12 +38,10 @@ const Annotation: FunctionComponent<AnnotationProps> = (props) => {
   return (
     <div className="vaply-annotation__staticPosition" style={positionProps}>
       {/* ----- card ----- */}
-      {props.config.type === "card" && <CardAnnotation config={props.config} onData={props.onData} onRoute={props.onRoute} onClose={props.onClose} />}
+      {props.config.type === "card" && <CardAnnotation config={props.config} onRoute={props.onRoute} onClose={props.onClose} />}
 
       {/* ----- externalcontent ----- */}
-      {props.config.type === "externalcontent" && (
-        <ExternalContentAnnotation config={props.config} onData={props.onData} onRoute={props.onRoute} onClose={props.onClose} />
-      )}
+      {props.config.type === "externalcontent" && <ExternalContentAnnotation config={props.config} onRoute={props.onRoute} onClose={props.onClose} />}
 
       {/* close button */}
       {props.config.dismissible && (

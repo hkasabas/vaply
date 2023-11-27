@@ -101,11 +101,6 @@ export type AnnotationTriggerConfig =
 
 // ---------- events
 
-export type DataEvent<D = unknown, T = string> = {
-  type: T;
-  data?: D;
-};
-
 export type RouteEvent = string;
 
 /** Type that filters union types by value(s) of `type` property. */

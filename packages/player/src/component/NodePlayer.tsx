@@ -2,7 +2,7 @@ import { h, FunctionComponent } from "preact";
 import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
 
 import { ContentNode } from "@player/component/ContentNode";
-import { DataEvent, NodeFlowConfig, NodePlayerConfig, ObjectValue } from "@player/model";
+import { NodeFlowConfig, NodePlayerConfig, ObjectValue } from "@player/model";
 import { getFirstNode, getNextNode, getPreviousNode } from "@player/util/flow";
 import { addressToRoute, createRoute, NodeRoute, NODE_ROUTE_NEXT_NODE, NODE_ROUTE_PREVIOUS_NODE } from "@player/util/router";
 
@@ -20,8 +20,6 @@ export interface NodePlayerProps {
 
   /** Player node config */
   config: NodePlayerConfig;
-
-  onData?: (data: DataEvent) => void;
 }
 
 /**Node player component
@@ -57,14 +55,6 @@ const NodePlayer: FunctionComponent<NodePlayerProps> = (props) => {
 
   // ---------- event handlers
 
-  // data event
-  const handleNodeData = useCallback(
-    (evt: DataEvent) => {
-      props.onData?.(evt);
-    },
-    [props.onData]
-  );
-
   // route event
   const handleNodeRoute = useCallback(
     (address: string | undefined) => {
@@ -76,14 +66,7 @@ const NodePlayer: FunctionComponent<NodePlayerProps> = (props) => {
   return (
     <div className="vaply-nodePlayer__container">
       {currentNode && (
-        <ContentNode
-          config={currentNode}
-          route={currentRoute}
-          annotations={currentNodeAnnotations}
-          triggers={currentNodeTriggers}
-          onData={handleNodeData}
-          onRoute={handleNodeRoute}
-        />
+        <ContentNode config={currentNode} route={currentRoute} annotations={currentNodeAnnotations} triggers={currentNodeTriggers} onRoute={handleNodeRoute} />
       )}
     </div>
   );

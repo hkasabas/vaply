@@ -4,7 +4,7 @@ import { useCallback, useMemo, useState } from "preact/hooks";
 
 import { VideoContentNode } from "@player/component/VideoContentNode";
 import { Annotation } from "@player/component/annotation/Annotation";
-import { DataEvent, ContentNodeConfig, RouteEvent, AnnotationConfig, AnnotationTriggerConfig, ObjectValue } from "@player/model";
+import { ContentNodeConfig, RouteEvent, AnnotationConfig, AnnotationTriggerConfig, ObjectValue } from "@player/model";
 import {
   findActiveAnnotations,
   findApplicableAnnotations as findAvailableAnnotations,
@@ -20,7 +20,6 @@ export type ContentNodeProps = {
   triggers: AnnotationTriggerConfig[];
   route?: NodeRoute;
 
-  onData?: (data: DataEvent) => void;
   onRoute?: (route: RouteEvent) => void;
 };
 
@@ -112,7 +111,7 @@ const ContentNode: FunctionComponent<ContentNodeProps> = (props) => {
 
       {/* ----- Annotations ----- */}
       {activeAnnotations.map((annot) => (
-        <Annotation key={annot.code} config={annot} onClose={() => handleAnnotationClose(annot)} onData={props.onData} onRoute={props.onRoute} />
+        <Annotation key={annot.code} config={annot} onClose={() => handleAnnotationClose(annot)} onRoute={props.onRoute} />
       ))}
     </div>
   );
