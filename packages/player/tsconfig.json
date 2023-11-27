@@ -6,5 +6,8 @@
   "compilerOptions": {
     "outDir": "dist" // this will tell TS that we won't overwrite JS files in "src" which we would if this was missing
   },
+  // extends jest's matcher with matchers from jest-dom
+  //
+  // "types": ["@types/testing-library__jest-dom"],
   "include": ["src"]
 }

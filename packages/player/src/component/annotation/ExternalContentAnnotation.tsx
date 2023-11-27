@@ -1,11 +1,12 @@
 import { FunctionComponent, h } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
-import { AnnotationConfig, RouteEvent, TypedUnion } from "@player/model";
+import { AnnotationConfig, RouteEvent } from "@player/model";
+import { FilteredByType } from "@player/util/typeFilter";
 
 /** External content annotation component props */
 export interface ExternalContentAnnotationProps {
-  config: TypedUnion<AnnotationConfig, "externalcontent">;
+  config: FilteredByType<AnnotationConfig, "externalcontent">;
 
   onRoute?: (route: RouteEvent) => void;
   onClose?: () => void;

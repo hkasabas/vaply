@@ -103,7 +103,4 @@ export type AnnotationTriggerConfig =
 
 export type RouteEvent = string;
 
-/** Type that filters union types by value(s) of `type` property. */
-export type TypedUnion<T extends { type: string }, V extends T["type"] | Array<T["type"]>> = Extract<T, { type: V }>;
-
 export type ObjectValue<T> = { value: T | undefined };

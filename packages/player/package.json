@@ -6,6 +6,8 @@
   "scripts": {
     "build": "rollup -c rollup.config.mjs",
     "dev": "rollup -c rollup.config.dev.mjs -w",
+    "test": "jest --selectProjects unit",
+    "test:watch": "npm test -- --watch",
     "clean": "rimraf ./dist"
   },
   "repository": {
@@ -26,9 +28,16 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@testing-library/dom": "^9.3.3",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/preact": "^3.2.3",
+    "@types/jest": "^29.5.10",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "less": "^4.2.0",
     "rollup": "^4.4.1",
     "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-preact": "^0.5.2"
+    "rollup-plugin-preact": "^0.5.2",
+    "ts-jest": "^29.1.1"
   }
 }
