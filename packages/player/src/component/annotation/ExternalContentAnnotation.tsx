@@ -2,7 +2,7 @@ import { FunctionComponent, h } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { AnnotationConfig, RouteEvent } from "@player/model";
-import { FilteredByType } from "@player/util/typeFilter";
+import { FilteredByType } from "@player/util/unionFilter";
 
 /** External content annotation component props */
 export interface ExternalContentAnnotationProps {

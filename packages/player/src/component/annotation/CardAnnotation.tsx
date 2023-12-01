@@ -1,13 +1,12 @@
 import { FunctionComponent, h } from "preact";
 
-import { AnnotationConfig, RouteEvent } from "@player/model";
-import { FilteredByType } from "@player/util/typeFilter";
+import { AnnotationConfig } from "@player/model";
+import { FilteredByType } from "@player/util/unionFilter";
 
 /** Card annotation component props */
 export type CardAnnotationProps = {
   config: FilteredByType<AnnotationConfig, "card">;
 
-  onRoute?: (route: RouteEvent) => void;
   onClose?: () => void;
 };
 

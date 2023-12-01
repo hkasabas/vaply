@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`annotations card displays title 1`] = `
+<DocumentFragment>
+  <div
+    class="vaply-annotation__staticPosition"
+    style="top: 5px; right: 5px; width: 100%; height: 100%;"
+  >
+    <div
+      class="vaply-cardAnnotation__container"
+    >
+      This is annotation #1
+    </div>
+    <div
+      class="vaply-annotation__closeButton"
+    >
+      ×
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`annotations card displays title 2`] = `
+<DocumentFragment>
+  <div
+    class="vaply-annotation__staticPosition"
+    style="top: 5px; right: 5px; width: 100%; height: 100%;"
+  >
+    <div
+      class="vaply-cardAnnotation__container"
+    >
+      This is annotation #12
+    </div>
+    <div
+      class="vaply-annotation__closeButton"
+    >
+      ×
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`annotations card renders 1`] = `
+<DocumentFragment>
+  <div
+    class="vaply-annotation__staticPosition"
+    style="top: 5px; right: 5px; width: 100%; height: 100%;"
+  >
+    <div
+      class="vaply-cardAnnotation__container"
+    >
+      This is annotation #1
+    </div>
+    <div
+      class="vaply-annotation__closeButton"
+    >
+      ×
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`annotations common applies dimensions 1`] = `
+<DocumentFragment>
+  <div
+    class="vaply-annotation__staticPosition"
+    style="top: 5px; right: 5px; width: 100%; height: 100%;"
+  >
+    <div
+      class="vaply-cardAnnotation__container"
+    >
+      This is annotation #1
+    </div>
+    <div
+      class="vaply-annotation__closeButton"
+    >
+      ×
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`annotations common applies dimensions 2`] = `
+<DocumentFragment>
+  <div
+    class="vaply-annotation__staticPosition"
+    style="top: 5px; right: 5px; width: 1px; height: 1px;"
+  >
+    <div
+      class="vaply-cardAnnotation__container"
+    >
+      This is annotation #1
+    </div>
+    <div
+      class="vaply-annotation__closeButton"
+    >
+      ×
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`annotations common applies dimensions 3`] = `
+<DocumentFragment>
+  <div
+    class="vaply-annotation__staticPosition"
+    style="top: 5px; right: 5px;"
+  >
+    <div
+      class="vaply-cardAnnotation__container"
+    >
+      This is annotation #1
+    </div>
+    <div
+      class="vaply-annotation__closeButton"
+    >
+      ×
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`annotations common applies static positioning 1`] = `
+<DocumentFragment>
+  <div
+    class="vaply-annotation__staticPosition"
+    style="top: 5px; right: 5px; width: 100%; height: 100%;"
+  >
+    <div
+      class="vaply-cardAnnotation__container"
+    >
+      This is annotation #1
+    </div>
+    <div
+      class="vaply-annotation__closeButton"
+    >
+      ×
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`annotations common applies static positioning 2`] = `
+<DocumentFragment>
+  <div
+    class="vaply-annotation__staticPosition"
+    style="top: 1px; right: 1px; bottom: 1px; left: 1px; width: 100%; height: 100%;"
+  >
+    <div
+      class="vaply-cardAnnotation__container"
+    >
+      This is annotation #1
+    </div>
+    <div
+      class="vaply-annotation__closeButton"
+    >
+      ×
+    </div>
+  </div>
+</DocumentFragment>
+`;
