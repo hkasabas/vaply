@@ -14,7 +14,7 @@ _<p align="center">Video Annotation PLaYer</span>_
 
 ---
 
-**V**ideo **A**nnotation **PL**a**Y**er is a small library for playing HTML video and rendering annotations over it. Annotations are various DOM elements (e.g. `div`) displayed over the video at certain points in time and with certain duration. These annotations can be manually dismissable, they can block the video, be positioned over certain part of the video, ...
+**V**ideo **A**nnotation **PL**a**Y**er is a small library for playing HTML video and rendering annotations over it. Annotations are various DOM elements (e.g. `div`) displayed over the video at certain points in time and with certain duration. These annotations can be manually dismissible, they can block the video, be positioned over certain part of the video, ...
 
 Vaply is video format agnostic and it does not touch your video file(s) but simply renders DOM elements (annotations) over the HTML video player.
 
@@ -30,9 +30,9 @@ or to enrich your video with additional content, e.g.:
 - show a gallery of related images,
 - add an interactive 3D animation.
 
-Some these things are easily added in video editing, like static text and images, but what about interactive content, like quizzes and animations? They can easily be create using web technologies but not video editors. You could probably even have them already created for some other purpose? Why not just use them in your video? Well, that's what Vaply is all about, using HTML content as video annotations.
+Some of these things can easily be added in video editing, like static text and images, but what about interactive content, like quizzes and animations? They can easily be create using web technologies, but not video editors. You could probably even have them already created for some other purpose? Why not just use them in your video? Well, that's what Vaply is all about, (re)using HTML content as video annotations.
 
-But don't think only in terms of static HTML content. You can build your content using modern JS frameworks like React or Angular and still use them in Vaply.
+But don't think only in terms of static HTML pages. You can build your content using modern JS frameworks like React or Angular and still use them in Vaply.
 
 ## Usage
 
