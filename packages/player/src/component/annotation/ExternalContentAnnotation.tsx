@@ -20,6 +20,8 @@ const ExternalContentAnnotation: FunctionComponent<ExternalContentAnnotationProp
   const externalContentRef = useRef<Element | null>(null);
   const externalContentParentRef = useRef<Element | null>(null);
 
+  // not using layout effect here since this entire component is removed from DOM on unmount
+  // so it looks unnecessary to return ext. content el to it's parent synchronously (what layout effect does)
   useEffect(() => {
     const el = document.querySelector(config.selector);
     const parentEl = el?.parentElement;
@@ -33,8 +35,10 @@ const ExternalContentAnnotation: FunctionComponent<ExternalContentAnnotationProp
       el?.parentElement?.removeChild(el);
 
       containerRef.current?.appendChild(el);
-    } else {
-      console.warn(`Empty external el or it's parent`, el, parentEl);
+    } else if (el == null) {
+      console.warn(`Empty external content annotation's el: "${config.selector}"`);
+    } else if (parentEl == null) {
+      console.warn(`Empty external content annotation el's parent`);
     }
 
     return () => {

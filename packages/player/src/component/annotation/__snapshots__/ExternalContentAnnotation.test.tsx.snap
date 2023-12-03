@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`external content annotations common applies dimensions 1`] = `
+<div>
+  <div>
+    <div
+      id="externalContentContainer"
+    />
+    <div
+      class="vaply-annotation__staticPosition"
+      style="top: 50%; right: 5px;"
+    >
+      <div
+        class="vaply-externalContentAnnotation__container"
+      >
+        <div
+          id="externalcontent-annot-1"
+        >
+          This is an annotation
+        </div>
+      </div>
+      <div
+        class="vaply-annotation__closeButton"
+      >
+        ×
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`external content annotations common applies dimensions 2`] = `
+<div>
+  <div>
+    <div
+      id="externalContentContainer"
+    >
+      <div
+        id="externalcontent-annot-1"
+      >
+        This is an annotation
+      </div>
+    </div>
+    <div
+      class="vaply-annotation__staticPosition"
+      style="top: 50%; right: 5px; width: 1px; height: 1px;"
+    >
+      <div
+        class="vaply-externalContentAnnotation__container"
+      >
+        <div
+          id="externalcontent-annot-1"
+        >
+          This is an annotation
+        </div>
+      </div>
+      <div
+        class="vaply-annotation__closeButton"
+      >
+        ×
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`external content annotations common applies dimensions 3`] = `
+<div>
+  <div>
+    <div
+      id="externalContentContainer"
+    >
+      <div
+        id="externalcontent-annot-1"
+      >
+        This is an annotation
+      </div>
+    </div>
+    <div
+      class="vaply-annotation__staticPosition"
+      style="top: 50%; right: 5px;"
+    >
+      <div
+        class="vaply-externalContentAnnotation__container"
+      >
+        <div
+          id="externalcontent-annot-1"
+        >
+          This is an annotation
+        </div>
+      </div>
+      <div
+        class="vaply-annotation__closeButton"
+      >
+        ×
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`external content annotations common applies static positioning 1`] = `
+<div>
+  <div>
+    <div
+      id="externalContentContainer"
+    />
+    <div
+      class="vaply-annotation__staticPosition"
+      style="top: 50%; right: 5px;"
+    >
+      <div
+        class="vaply-externalContentAnnotation__container"
+      >
+        <div
+          id="externalcontent-annot-1"
+        >
+          This is an annotation
+        </div>
+      </div>
+      <div
+        class="vaply-annotation__closeButton"
+      >
+        ×
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`external content annotations common applies static positioning 2`] = `
+<div>
+  <div>
+    <div
+      id="externalContentContainer"
+    >
+      <div
+        id="externalcontent-annot-1"
+      >
+        This is an annotation
+      </div>
+    </div>
+    <div
+      class="vaply-annotation__staticPosition"
+      style="top: 1px; right: 1px; bottom: 1px; left: 1px;"
+    >
+      <div
+        class="vaply-externalContentAnnotation__container"
+      >
+        <div
+          id="externalcontent-annot-1"
+        >
+          This is an annotation
+        </div>
+      </div>
+      <div
+        class="vaply-annotation__closeButton"
+      >
+        ×
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`external content annotations externalcontent renders 1`] = `
+<div>
+  <div>
+    <div
+      id="externalContentContainer"
+    />
+    <div
+      class="vaply-annotation__staticPosition"
+      style="top: 50%; right: 5px;"
+    >
+      <div
+        class="vaply-externalContentAnnotation__container"
+      >
+        <div
+          id="externalcontent-annot-1"
+        >
+          This is an annotation
+        </div>
+      </div>
+      <div
+        class="vaply-annotation__closeButton"
+      >
+        ×
+      </div>
+    </div>
+  </div>
+</div>
+`;
