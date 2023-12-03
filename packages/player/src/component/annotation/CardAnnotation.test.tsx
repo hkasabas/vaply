@@ -1,12 +1,12 @@
-import { fireEvent, render } from "@testing-library/preact";
+import { render } from "@testing-library/preact";
 import { h } from "preact";
-import { screen } from "@testing-library/dom";
 
 import { Annotation } from "@player/component/annotation/Annotation";
+import { commonTests } from "@player/component/annotation/Annotation.test";
 import { AnnotationConfig } from "@player/model";
 import { createAnnotation, findAnnotation } from "@player/util/testUtils";
 
-describe("annotations", () => {
+describe("card annotations", () => {
   // --- prepared mock data
   const ANNOTATIONS: AnnotationConfig[] = [
     {
@@ -19,67 +19,10 @@ describe("annotations", () => {
     },
   ];
 
-  describe("common", () => {
-    it("dismissible can be dismissed", () => {
-      // pick any annotation
-      const annot = createAnnotation(findAnnotation(ANNOTATIONS, "card"), { dismissible: true });
-      const closeHandler = jest.fn();
+  // run common tests
+  commonTests(findAnnotation(ANNOTATIONS, "card"));
 
-      // render
-      render(<Annotation config={annot} onClose={closeHandler} />);
-
-      const closeBtn = screen.getByText<HTMLDivElement>("×");
-      fireEvent.click(closeBtn);
-
-      expect(closeHandler).toHaveBeenCalledTimes(1);
-    });
-
-    it("undismissible does not show close button", () => {
-      // pick any annotation
-      const annot = createAnnotation(findAnnotation(ANNOTATIONS, "card"), { dismissible: false });
-
-      // render
-      render(<Annotation config={annot} />);
-
-      const closeBtn = screen.queryByText<HTMLDivElement>("×");
-
-      expect(closeBtn).toBeNull();
-    });
-
-    it("applies static positioning", () => {
-      // pick any annotation
-      const annot = findAnnotation(ANNOTATIONS, "card");
-
-      // render
-      const result1 = render(<Annotation config={annot} />);
-      expect(result1.asFragment()).toMatchSnapshot();
-
-      // rerender with changed positioning
-      const annot2 = createAnnotation(findAnnotation(ANNOTATIONS, "card"), { position: { static: { top: "1px", right: "1px", bottom: "1px", left: "1px" } } });
-      const result2 = render(<Annotation config={annot2} />);
-      expect(result2.asFragment()).toMatchSnapshot();
-    });
-
-    it("applies dimensions", () => {
-      // pick any annotation
-      const annot = findAnnotation(ANNOTATIONS, "card");
-
-      // render
-      const result1 = render(<Annotation config={annot} />);
-      expect(result1.asFragment()).toMatchSnapshot();
-
-      // rerender with changed dimensions
-      const annot2 = createAnnotation(findAnnotation(ANNOTATIONS, "card"), { dimensions: { width: "1px", height: "1px" } });
-      const result2 = render(<Annotation config={annot2} />);
-      expect(result2.asFragment()).toMatchSnapshot();
-
-      // rerender with no dimensions
-      const annot3 = createAnnotation(findAnnotation(ANNOTATIONS, "card"), { dimensions: undefined });
-      const result3 = render(<Annotation config={annot3} />);
-      expect(result3.asFragment()).toMatchSnapshot();
-    });
-  });
-
+  // run "card" specific tests
   describe("card", () => {
     it("renders", () => {
       const annot = findAnnotation(ANNOTATIONS, "card");
