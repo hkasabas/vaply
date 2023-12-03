@@ -34,7 +34,7 @@
 
   <div id="vaply-externalcontent__container">
     <div id="externalcontent-annot-1">
-      This is external content #1
+      This is external content #1 (<span id="externalcontent-annot-1-close">close me</span>)
     </div>
   </div>
 
@@ -42,6 +42,11 @@
     window.addEventListener('load', () => {
       VaplyPlayer.createPlayer('#vaply-demo', {
         config: VaplyPlayer.MOCK
+      })
+
+      const annot1CloseEl = document.querySelector("#externalcontent-annot-1-close")
+      annot1CloseEl.addEventListener("click", () => {
+        annot1CloseEl.dispatchEvent(new CustomEvent("close"))
       })
     })
   </script>

@@ -38,10 +38,10 @@ const Annotation: FunctionComponent<AnnotationProps> = (props) => {
   return (
     <div className="vaply-annotation__staticPosition" style={positionProps}>
       {/* ----- card ----- */}
-      {props.config.type === "card" && <CardAnnotation config={props.config} onClose={props.onClose} />}
+      {props.config.type === "card" && <CardAnnotation config={props.config} />}
 
       {/* ----- externalcontent ----- */}
-      {props.config.type === "externalcontent" && <ExternalContentAnnotation config={props.config} onRoute={props.onRoute} onClose={props.onClose} />}
+      {props.config.type === "externalcontent" && <ExternalContentAnnotation config={props.config} onClose={props.onClose} />}
 
       {/* close button */}
       {props.config.dismissible && (

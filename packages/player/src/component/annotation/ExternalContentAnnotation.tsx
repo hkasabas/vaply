@@ -1,6 +1,7 @@
 import { FunctionComponent } from "preact";
-import { useEffect, useRef } from "preact/hooks";
+import { useCallback, useEffect, useRef } from "preact/hooks";
 
+import useDomEvent from "@player/component/hook/useDomEvent";
 import { AnnotationConfig, RouteEvent } from "@player/model";
 import { FilteredByType } from "@player/util/unionFilter";
 
@@ -51,6 +52,12 @@ const ExternalContentAnnotation: FunctionComponent<ExternalContentAnnotationProp
       externalContentParentRef.current = null;
     };
   }, [config.selector]);
+
+  // --- handle close event
+  const handleClose = useCallback(() => {
+    props.onClose?.();
+  }, [props.onClose]);
+  useDomEvent(externalContentRef.current, "click", handleClose);
 
   return <div className="vaply-externalContentAnnotation__container" ref={containerRef} />;
 };

@@ -1,4 +1,4 @@
-import { render } from "@testing-library/preact";
+import { fireEvent, render, waitFor } from "@testing-library/preact";
 import { FunctionComponent, RenderableProps } from "preact";
 
 import { Annotation } from "@player/component/annotation/Annotation";
@@ -17,8 +17,11 @@ const WrapperComponent: FunctionComponent<WrapperComponentProps> = (props) => {
   return (
     <div>
       {/* set static HTML content that the component can move around */}
-      {/* eslint-disable-next-line react/no-danger */}
-      <div id="externalContentContainer" dangerouslySetInnerHTML={{ __html: '<div id="externalcontent-annot-1">This is an annotation</div>' }} />
+      <div
+        id="externalContentContainer"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: '<div id="externalcontent-annot-1">This is an annotation</div>' }}
+      />
 
       {(props.renderAnnotation ?? true) && props.children}
     </div>
@@ -61,7 +64,7 @@ describe("external content annotations", () => {
       expect(result1.container).toMatchSnapshot();
     });
 
-    it("contains external content", async () => {
+    it("handles ext. content el", async () => {
       const annot = findAnnotation(ANNOTATIONS, "externalcontent");
 
       // --- test annotation component mounting
@@ -87,6 +90,21 @@ describe("external content annotations", () => {
       // ext. content back in it's container
       const newEl2 = result2.container.querySelector<HTMLDivElement>(`.vaply-externalContentAnnotation__container #externalcontent-annot-1`);
       expect(newEl2).toBeNull();
+    });
+
+    it("triggers annotation close from ext. content el", () => {
+      const annot = findAnnotation(ANNOTATIONS, "externalcontent");
+      const closeHandler = jest.fn();
+
+      // render
+      const result = render(<Annotation config={annot} onClose={closeHandler} />, { wrapper: wrapperComponentFactory() });
+
+      const el = result.getByText("This is an annotation");
+      fireEvent(el, new CustomEvent("close"));
+
+      waitFor(() => {
+        expect(closeHandler).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });
