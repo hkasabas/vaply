@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/dom";
 import { fireEvent, render } from "@testing-library/preact";
-import { ComponentType, Fragment, h } from "preact";
+import { ComponentType, Fragment } from "preact";
 
 import { Annotation } from "@player/component/annotation/Annotation";
 import { AnnotationConfig } from "@player/model";

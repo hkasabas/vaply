@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { h, FunctionComponent } from "preact";
+import { FunctionComponent } from "preact";
 import { useCallback, useMemo, useState } from "preact/hooks";
 
 import { VideoContentNode } from "@player/component/VideoContentNode";

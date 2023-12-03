@@ -1,4 +1,4 @@
-import { FunctionComponent, h, JSX } from "preact";
+import { FunctionComponent, JSX } from "preact";
 import { useCallback, useEffect, useRef } from "preact/hooks";
 
 import { ObjectValue, VideoContentConfig } from "@player/model";

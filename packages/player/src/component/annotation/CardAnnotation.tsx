@@ -1,4 +1,4 @@
-import { FunctionComponent, h } from "preact";
+import { FunctionComponent } from "preact";
 
 import { AnnotationConfig } from "@player/model";
 import { FilteredByType } from "@player/util/unionFilter";

@@ -1,4 +1,4 @@
-import { FunctionComponent, h } from "preact";
+import { FunctionComponent } from "preact";
 import { useEffect, useRef } from "preact/hooks";
 
 import { AnnotationConfig, RouteEvent } from "@player/model";

@@ -1,5 +1,5 @@
 import { render } from "@testing-library/preact";
-import { FunctionComponent, RenderableProps, h } from "preact";
+import { FunctionComponent, RenderableProps } from "preact";
 
 import { Annotation } from "@player/component/annotation/Annotation";
 import { commonTests } from "@player/component/annotation/Annotation.test";

@@ -1,4 +1,4 @@
-import { h, FunctionComponent } from "preact";
+import { FunctionComponent } from "preact";
 import { useCallback, useMemo } from "preact/hooks";
 
 import { CardAnnotation } from "@player/component/annotation/CardAnnotation";

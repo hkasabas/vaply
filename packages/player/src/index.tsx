@@ -1,4 +1,4 @@
-import { h, render } from "preact";
+import { render } from "preact";
 
 import { NodePlayer } from "@player/component/NodePlayer";
 import { NodePlayerConfig } from "@player/model";
