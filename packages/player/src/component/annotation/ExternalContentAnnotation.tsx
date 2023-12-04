@@ -1,7 +1,7 @@
 import { FunctionComponent } from "preact";
 import { useCallback, useEffect, useRef } from "preact/hooks";
 
-import useDomEvent from "@player/component/hook/useDomEvent";
+import { useDomEvent } from "@player/component/hook/useDomEvent";
 import { AnnotationConfig, RouteEvent } from "@player/model";
 import { FilteredByType } from "@player/util/unionFilter";
 
@@ -18,13 +18,13 @@ const ExternalContentAnnotation: FunctionComponent<ExternalContentAnnotationProp
   const config = props.config.externalcontent;
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const externalContentRef = useRef<Element | null>(null);
-  const externalContentParentRef = useRef<Element | null>(null);
+  const externalContentRef = useRef<HTMLElement | null>(null);
+  const externalContentParentRef = useRef<HTMLElement | null>(null);
 
   // not using layout effect here since this entire component is removed from DOM on unmount
   // so it looks unnecessary to return ext. content el to it's parent synchronously (what layout effect does)
   useEffect(() => {
-    const el = document.querySelector(config.selector);
+    const el = document.querySelector<HTMLElement>(config.selector);
     const parentEl = el?.parentElement;
 
     if (el != null && parentEl != null) {
@@ -57,7 +57,7 @@ const ExternalContentAnnotation: FunctionComponent<ExternalContentAnnotationProp
   const handleClose = useCallback(() => {
     props.onClose?.();
   }, [props.onClose]);
-  useDomEvent(externalContentRef.current, "click", handleClose);
+  useDomEvent(externalContentRef, "click", handleClose);
 
   return <div className="vaply-externalContentAnnotation__container" ref={containerRef} />;
 };

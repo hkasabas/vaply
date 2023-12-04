@@ -1,47 +1,57 @@
-import { useEffect, useRef } from "preact/hooks";
+import { RefObject } from "preact";
+import { useCallback, useEffect, useRef } from "preact/hooks";
 
-type EventType = keyof GlobalEventHandlersEventMap;
-
-/** Hook that handles sub/unsubscribing from DOM events. */
-function useDomEvent<T extends EventTarget>(
-  element: T | null,
-  eventType: EventType,
-  handler: (event: Event) => void,
+/** Hook that subscribes and automatically unsubscribes from DOM events. */
+export function useDomEvent<K extends keyof HTMLElementEventMap, T extends HTMLElement>(
+  element: RefObject<T>,
+  eventType: K,
+  handler: (event: HTMLElementEventMap[K]) => void,
   options?: boolean | AddEventListenerOptions
 ) {
   // Ref to store the handler
-  const savedHandler = useRef<(event: Event) => void>();
+  const savedHandler = useRef(handler);
 
-  // Update ref.current value if handler changes.
+  // store handler
   useEffect(() => {
     savedHandler.current = handler;
   }, [handler]);
 
   useEffect(() => {
-    if (element == null) return;
+    const el = element.current;
 
-    // Create event listener that calls handler function stored in ref
+    if (el == null) return;
+
+    // create event listener that calls handler function stored in ref
     const eventListener: typeof handler = (event) => savedHandler.current?.(event);
 
-    // Add event listener
-    element.addEventListener(eventType, eventListener, options);
+    // add event listener
+    el.addEventListener(eventType, eventListener, options);
 
-    // Remove event listener on cleanup
     return () => {
-      element.removeEventListener(eventType, eventListener, options);
+      // remove event listener on cleanup
+      el.removeEventListener(eventType, eventListener, options);
     };
-  }, [eventType, element, options]); // Re-run if eventType, element, or options change
-
-  // Once function
-  const once = (onceHandler: (event: Event) => void) => {
-    const wrappedHandler = (event: Event) => {
-      onceHandler(event);
-      element?.removeEventListener(eventType, wrappedHandler, options);
-    };
-    element?.addEventListener(eventType, wrappedHandler, options);
-  };
-
-  return { once };
+  }, [eventType, element, options]);
 }
 
-export default useDomEvent;
+/** Hook that subscribes to DOM event but automatically unsubscribes after the first event, or unmount. Whichever comes first. */
+export function useDomEventOnce<K extends keyof HTMLElementEventMap, T extends HTMLElement>(
+  element: RefObject<T>,
+  eventType: K,
+  handler: (event: HTMLElementEventMap[K]) => void,
+  options?: boolean | AddEventListenerOptions
+) {
+  const handlerCalled = useRef<boolean>(false);
+
+  const onceHandler = useCallback<typeof handler>(
+    (evt) => {
+      if (!handlerCalled.current) {
+        handlerCalled.current = true;
+        handler(evt);
+      }
+    },
+    [handler]
+  );
+
+  useDomEvent(element, eventType, onceHandler, options);
+}
