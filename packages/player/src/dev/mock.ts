@@ -23,7 +23,7 @@ export const MOCK: NodePlayerConfig = {
           code: "annot-1",
           type: "card",
           position: { type: "static", static: { top: "5px", right: "5px" } },
-          card: { title: "This is annotation #1" },
+          card: { title: "I'm an annotation #1" },
           dismissible: true,
         },
         {
@@ -33,7 +33,7 @@ export const MOCK: NodePlayerConfig = {
           dismissible: true,
           position: { type: "static", static: { top: "0px", left: "0px" } },
           dimensions: { width: "100%", height: "100%" },
-          card: { title: "This is annotation #2" },
+          card: { title: 'I\'m a blocking annotation #2 You can close me by clicking on "×".' },
         },
         {
           code: "annot-3",
