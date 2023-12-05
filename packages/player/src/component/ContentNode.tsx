@@ -30,17 +30,22 @@ export type ContentNodeProps = {
  * content starting, stopping, showing annotations, ...
  */
 const ContentNode: FunctionComponent<ContentNodeProps> = (props) => {
-  // annotations available at the current moment
-  const [availableAnnotations, setAvailableAnnotations] = useState<AnnotationConfig[]>([]);
-  // closed annotations
+  // track current time
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  // track closed annotations
   const [closedAnnotations, setClosedAnnotations] = useState<AnnotationConfig[]>([]);
+
+  // annotations available at the current moment
+  const availableAnnotations = useMemo(() => {
+    return findAvailableAnnotations(currentTime.toString(), "timeupdate", props.annotations, props.triggers);
+  }, [currentTime]);
 
   // update resulting annotations
   const activeAnnotations = useMemo(() => {
     return findActiveAnnotations(availableAnnotations, closedAnnotations);
   }, [availableAnnotations, closedAnnotations]);
 
-  // is content blocked
+  // is content blocked iow. do we have an active blocking annotation
   const isContentBlocked = useMemo(() => {
     return hasBlockingAnnotations(activeAnnotations);
   }, [activeAnnotations]);
@@ -73,10 +78,10 @@ const ContentNode: FunctionComponent<ContentNodeProps> = (props) => {
 
   // ---------- handle events
 
-  //  content timeupdata
+  //  content timeupdate
   const handleContentTimeupdate = useCallback(
-    (currentTime: number) => {
-      setAvailableAnnotations(findAvailableAnnotations(currentTime.toString(), "timeupdate", props.annotations, props.triggers));
+    (time: number) => {
+      setCurrentTime(time);
     },
     [props.annotations, props.triggers]
   );
