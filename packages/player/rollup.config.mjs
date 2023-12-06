@@ -4,10 +4,10 @@ import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 
 export default {
-  input: "./src/index.ts",
+  input: "./src/index.tsx",
   output: {
     name: "VaplyPlayer",
-    dir: "dist",
+    file: "./dist/vaply.js",
     format: "iife",
   },
   plugins: [typescript({ tsconfig: "./tsconfig.build.json" }), postcss({}), nodeResolve(), commonjs()],
