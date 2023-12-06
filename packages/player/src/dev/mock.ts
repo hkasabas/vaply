@@ -23,7 +23,7 @@ export const MOCK: NodePlayerConfig = {
           code: "annot-1",
           type: "card",
           position: { type: "static", static: { top: "5px", right: "5px" } },
-          card: { title: "I'm an annotation #1" },
+          card: { title: "I'm a card annotation #1" },
           dismissible: true,
         },
         {

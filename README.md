@@ -34,6 +34,10 @@ Some of these things can easily be added in video editing, like static text and 
 
 But don't think only in terms of static HTML pages. You can build your content using modern JS frameworks like React or Angular and still use them in Vaply.
 
+<p align="center">
+![VAPly Demo](./static/vaply_demo_screencast.gif?raw=true "VAPly Demo")
+</p>
+
 ## Usage
 
 ### HTML web page

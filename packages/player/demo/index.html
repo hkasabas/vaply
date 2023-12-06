@@ -4,6 +4,10 @@
   <title>VAPly - Demo</title>
 
   <style>
+    BODY {
+      padding: 1rem 2rem;
+    }
+
     #vaply-demo {
       width: 600px;
     }
@@ -13,7 +17,12 @@
     }
 
     #vaply-externalcontent__container {
-      display: none;
+      /* display: none; */
+      margin: 3rem 1rem 1rem;
+      padding: 1rem;
+      border: 1px solid;
+      min-height: 10rem;
+      width: 35rem;
     }
 
     #externalcontent-annot-1 {
@@ -33,6 +42,7 @@
   <div id="vaply-demo"></div>
 
   <div id="vaply-externalcontent__container">
+    <h3>External content pool (usually hidden)</h3>
     <div id="externalcontent-annot-1">
       I'm an external content #1 (<button id="externalcontent-annot-1-close">another close</button>)
     </div>
