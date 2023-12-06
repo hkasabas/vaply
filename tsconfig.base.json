@@ -11,7 +11,6 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
     "declaration": true,
-    "incremental": true,
     "declarationMap": true,
     "strict": true,
     "lib": ["es2021"],
