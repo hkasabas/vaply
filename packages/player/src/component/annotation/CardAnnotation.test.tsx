@@ -29,7 +29,7 @@ describe("card annotations", () => {
 
       // render
       const result1 = render(<Annotation config={annot} />);
-      expect(result1.asFragment()).toMatchSnapshot();
+      expect(result1.container).toMatchSnapshot();
     });
 
     it("displays title", () => {
@@ -37,12 +37,12 @@ describe("card annotations", () => {
 
       // render
       const result1 = render(<Annotation config={annot} />);
-      expect(result1.asFragment()).toMatchSnapshot();
+      expect(result1.container).toMatchSnapshot();
 
       // rerender with changed title
       const annot2 = createAnnotation(findAnnotation(ANNOTATIONS, "card"), { card: { title: annot.card.title + "2" } });
       const result2 = render(<Annotation config={annot2} />);
-      expect(result2.asFragment()).toMatchSnapshot();
+      expect(result2.container).toMatchSnapshot();
     });
   });
 });

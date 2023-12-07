@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`card annotations card displays title 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="vaply-annotation__staticPosition"
     style="top: 5px; right: 5px; width: 100%; height: 100%;"
@@ -17,11 +17,11 @@ exports[`card annotations card displays title 1`] = `
       ×
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`card annotations card displays title 2`] = `
-<DocumentFragment>
+<div>
   <div
     class="vaply-annotation__staticPosition"
     style="top: 5px; right: 5px; width: 100%; height: 100%;"
@@ -37,11 +37,11 @@ exports[`card annotations card displays title 2`] = `
       ×
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`card annotations card renders 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="vaply-annotation__staticPosition"
     style="top: 5px; right: 5px; width: 100%; height: 100%;"
@@ -57,7 +57,7 @@ exports[`card annotations card renders 1`] = `
       ×
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`card annotations common applies dimensions 1`] = `
