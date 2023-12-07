@@ -8,19 +8,17 @@ import { NODE_ROUTE_NEXT_NODE, NODE_ROUTE_NODE_END, NODE_ROUTE_NODE_START, NODE_
 /**
  * Video content node component props.
  */
-export type CommonContentNodeProps<T> = {
-  config: T;
+export type VideoContentNodeProps = {
+  config: VideoContentConfig;
   currentPosition?: ObjectValue<string>;
   blocked?: boolean;
 
-  onContentReady?: () => void;
-  onContentPlay?: () => void;
-  onContentPause?: () => void;
-  onContentEnd?: () => void;
-  onContentTimeUpdate?: (time: number) => void;
+  onReady?: () => void;
+  onPlay?: () => void;
+  onPause?: () => void;
+  onEnd?: () => void;
+  onTimeUpdate?: (time: number) => void;
 };
-
-export type VideoContentNodeProps = CommonContentNodeProps<VideoContentConfig>;
 
 /**
  * Video content node component
@@ -46,13 +44,14 @@ const VideoContentNode: FunctionComponent<VideoContentNodeProps> = (props) => {
         videElRef.current.play();
       }
     }
-  }, [props.blocked, videElRef]);
+  }, [props.blocked]);
 
   // route change
   useEffect(() => {
     if (videElRef.current != null && props.currentPosition?.value != null) {
       let newPosition;
       if (props.currentPosition.value == NODE_ROUTE_NODE_START) {
+        console.log("props.currentPosition.value", props.currentPosition.value);
         newPosition = 0;
       } else if (props.currentPosition.value == NODE_ROUTE_NODE_END) {
         newPosition = videElRef.current.duration;
@@ -62,7 +61,6 @@ const VideoContentNode: FunctionComponent<VideoContentNodeProps> = (props) => {
         newPosition = Number.parseInt(props.currentPosition.value, 10);
       }
 
-      console.log("newPosition", newPosition);
       videElRef.current.currentTime = newPosition;
     }
   }, [props.currentPosition]);
@@ -70,39 +68,39 @@ const VideoContentNode: FunctionComponent<VideoContentNodeProps> = (props) => {
   // ---------- event handlers
 
   const handleCanPlay = useCallback(() => {
-    props.onContentReady?.();
-  }, [props.onContentReady]);
+    props.onReady?.();
+  }, [props.onReady]);
 
   const handlePlay = useCallback(() => {
-    props.onContentPlay?.();
-  }, [props.onContentPlay]);
+    props.onPlay?.();
+  }, [props.onPlay]);
 
   const handlePause = useCallback(() => {
-    props.onContentPause?.();
-  }, [props.onContentPause]);
+    props.onPause?.();
+  }, [props.onPause]);
 
-  const handleEnded = useCallback(() => {
-    props.onContentEnd?.();
-  }, [props.onContentEnd]);
+  const handleEnd = useCallback(() => {
+    props.onEnd?.();
+  }, [props.onEnd]);
 
   const handleTimeUpdate = useCallback(
     (event: JSX.TargetedEvent<HTMLVideoElement>) => {
-      props.onContentTimeUpdate?.(event.currentTarget.currentTime);
+      props.onTimeUpdate?.(event.currentTarget.currentTime);
     },
-    [props.onContentTimeUpdate]
+    [props.onTimeUpdate]
   );
 
   const handleSeeked = useCallback(
     (event: JSX.TargetedEvent<HTMLVideoElement>) => {
-      props.onContentTimeUpdate?.(event.currentTarget.currentTime);
+      props.onTimeUpdate?.(event.currentTarget.currentTime);
     },
-    [props.onContentTimeUpdate]
+    [props.onTimeUpdate]
   );
 
   return (
     <div className="vaply-videoContentNode--contentContainer">
       {/* ----- file video ----- */}
-      {props.config.file && (
+      {props.config.type === "file" && (
         <video
           poster={props.config.file.poster}
           src={props.config.file.src}
@@ -110,10 +108,11 @@ const VideoContentNode: FunctionComponent<VideoContentNodeProps> = (props) => {
           controls
           preload="metadata"
           loading="lazy"
+          data-testid="video-el"
           onCanPlay={handleCanPlay}
           onPlay={handlePlay}
           onPause={handlePause}
-          onEnded={handleEnded}
+          onEnded={handleEnd}
           onTimeUpdate={handleTimeUpdate}
           onSeeked={handleSeeked}
         />

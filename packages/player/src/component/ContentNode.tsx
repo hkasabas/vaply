@@ -109,8 +109,8 @@ const ContentNode: FunctionComponent<ContentNodeProps> = (props) => {
           currentPosition={currentPosition}
           config={props.config.video}
           blocked={isContentBlocked}
-          onContentTimeUpdate={handleContentTimeupdate}
-          onContentEnd={handleContentEnd}
+          onTimeUpdate={handleContentTimeupdate}
+          onEnd={handleContentEnd}
         />
       )}
 

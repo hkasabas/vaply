@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`video content node renders 1`] = `
+<div>
+  <div
+    class="vaply-videoContentNode--contentContainer"
+  >
+    <video
+      controls=""
+      data-testid="video-el"
+      loading="lazy"
+      preload="metadata"
+      src="./demo_video_longer.mp4"
+    />
+  </div>
+</div>
+`;

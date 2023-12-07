@@ -34,7 +34,7 @@ export interface VideoContentConfig {
   type: VideoContentType;
 
   // [<VideoContentType>]: {},
-  file?: FileVideoContentConfig;
+  file: FileVideoContentConfig;
 }
 
 export interface FileVideoContentConfig {
