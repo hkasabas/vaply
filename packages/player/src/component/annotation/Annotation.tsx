@@ -3,13 +3,12 @@ import { useCallback, useMemo } from "preact/hooks";
 
 import { CardAnnotation } from "@player/component/annotation/CardAnnotation";
 import { ExternalContentAnnotation } from "@player/component/annotation/ExternalContentAnnotation";
-import { AnnotationConfig, RouteEvent } from "@player/model";
+import { AnnotationConfig } from "@player/model";
 
 /** Annotation component props */
 export type AnnotationProps = {
   config: AnnotationConfig;
 
-  onRoute?: (route: RouteEvent) => void;
   onClose?: () => void;
 };
 

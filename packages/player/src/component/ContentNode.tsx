@@ -116,7 +116,7 @@ const ContentNode: FunctionComponent<ContentNodeProps> = (props) => {
 
       {/* ----- Annotations ----- */}
       {activeAnnotations.map((annot) => (
-        <Annotation key={annot.code} config={annot} onClose={() => handleAnnotationClose(annot)} onRoute={props.onRoute} />
+        <Annotation key={annot.code} config={annot} onClose={() => handleAnnotationClose(annot)} />
       ))}
     </div>
   );
